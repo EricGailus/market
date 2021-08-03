@@ -4,6 +4,10 @@ import { AbiItem } from 'web3-utils/types'
 import Web3 from 'web3'
 
 export function getOceanConfig(network: string | number): ConfigHelperConfig {
+  if (network == '1337') {
+    network = 'development'
+  }
+
   const config = new ConfigHelper().getConfig(
     network,
     network === 'polygon' ||
@@ -17,7 +21,13 @@ export function getOceanConfig(network: string | number): ConfigHelperConfig {
       : process.env.GATSBY_INFURA_PROJECT_ID
   )
 
-  return config as ConfigHelperConfig
+  const myConfig = config as ConfigHelperConfig
+
+  if (myConfig !== null && myConfig.subgraphUri === null) {
+    myConfig.subgraphUri = 'http://127.0.0.1:9000'
+  }
+
+  return myConfig
 }
 
 export function getDevelopmentConfig(): Partial<ConfigHelperConfig> {
@@ -28,7 +38,7 @@ export function getDevelopmentConfig(): Partial<ConfigHelperConfig> {
     metadataContractAddress: contractAddresses.development?.Metadata,
     oceanTokenAddress: contractAddresses.development?.Ocean,
     // There is no subgraph in barge so we hardcode the Rinkeby one for now
-    subgraphUri: 'https://subgraph.rinkeby.oceanprotocol.com'
+    subgraphUri: 'http://127.0.0.1:9000'
   }
 }
 

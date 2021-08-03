@@ -8,6 +8,9 @@ export async function fileinfo(
   cancelToken: CancelToken
 ): Promise<FileMetadata> {
   try {
+    if (providerUri === undefined) {
+      providerUri = 'http://localhost:8030'
+    }
     const response: AxiosResponse = await axios.post(
       `${providerUri}/api/v1/services/fileinfo`,
       {
