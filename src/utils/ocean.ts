@@ -27,6 +27,15 @@ export function getOceanConfig(network: string | number): ConfigHelperConfig {
     myConfig.subgraphUri = 'http://127.0.0.1:9000'
   }
 
+  if (myConfig !== null && network === 1337) {
+    config.oceanTokenAddress = '0x02175de5A7F168517688e3E93f55936C9c2C7A19'
+    config.factoryAddress = '0xE9dC0B76ceCc3f402C6EA57d5191811B1660AF32'
+    config.metadataContractAddress =
+      '0xE4f7c64C52085A6df2c7c2972466EEf3ba3aD081'
+    config.fixedRateExchangeAddress =
+      '0xc6eF91571a6d512985C885cb5EEB7aC8E6C47f4B'
+    config.poolFactoryAddress = '0x55E873f9327Ee99a67975C8F2BEa04aD141B2807'
+  }
   return myConfig
 }
 
