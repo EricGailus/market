@@ -143,9 +143,6 @@ const HighestLiquidityAssets = gql`
 
 export function getSubgrahUri(chainId: number): string {
   const config = getOceanConfig(chainId)
-  if (config === null) {
-    return 'http://127.0.0.1:9000'
-  }
   return config.subgraphUri
 }
 

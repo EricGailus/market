@@ -5,7 +5,8 @@ module.exports = {
   // In components can be accessed with the useSiteMetadata hook:
   // const { appConfig } = useSiteMetadata()
   // return appConfig.metadataCacheUri
-  metadataCacheUri: process.env.METADATACACHE_URI || 'http://0.0.0.0:5000',
+  metadataCacheUri:
+    process.env.METADATACACHE_URI || 'https://aquarius.oceanprotocol.com',
 
   // List of chainIds which metadata cache queries will return by default.
   // This preselects the Chains user preferences.
