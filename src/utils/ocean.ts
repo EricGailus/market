@@ -4,7 +4,7 @@ import { AbiItem } from 'web3-utils/types'
 import Web3 from 'web3'
 
 export function getOceanConfig(network: string | number): ConfigHelperConfig {
-  if (network == '1337') {
+  if (network == '1337' || network === undefined || Number.isNaN(network)) {
     network = 'development'
   }
 
@@ -27,14 +27,14 @@ export function getOceanConfig(network: string | number): ConfigHelperConfig {
     myConfig.subgraphUri = 'http://127.0.0.1:9000'
   }
 
-  if (myConfig !== null && network === 1337) {
-    config.oceanTokenAddress = '0x02175de5A7F168517688e3E93f55936C9c2C7A19'
-    config.factoryAddress = '0xE9dC0B76ceCc3f402C6EA57d5191811B1660AF32'
+  if (myConfig !== null && (network === 1337 || network === undefined)) {
+    config.oceanTokenAddress = '0x3A819b4848FBd48A680303d739daaA2ed46EeF2E'
+    config.factoryAddress = '0xE8299CCe89f1B30E1d65Ebb827b784D8900aEf2c'
     config.metadataContractAddress =
-      '0xE4f7c64C52085A6df2c7c2972466EEf3ba3aD081'
+      '0x10c1a8a80197b9Aed657bb0F8057c7C89504ABDE'
     config.fixedRateExchangeAddress =
-      '0xc6eF91571a6d512985C885cb5EEB7aC8E6C47f4B'
-    config.poolFactoryAddress = '0x55E873f9327Ee99a67975C8F2BEa04aD141B2807'
+      '0xe8e117260e01482dDFaDFe0960d44097a3a73C49'
+    config.poolFactoryAddress = '0x515BF99873534584fF1ae590EaB00Cda1BF10583'
   }
   return myConfig
 }

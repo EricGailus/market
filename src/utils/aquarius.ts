@@ -91,7 +91,12 @@ export async function retrieveDDO(
     if (!response || response.status !== 200 || !response.data) return
 
     const data = { ...response.data }
-    return new DDO(data)
+    const currentDdo = new DDO(data)
+    if (currentDdo.chainId === undefined) {
+      currentDdo.chainId = 8996
+    }
+
+    return currentDdo
   } catch (error) {
     if (axios.isCancel(error)) {
       Logger.log(error.message)

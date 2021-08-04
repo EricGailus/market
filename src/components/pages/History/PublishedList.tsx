@@ -28,9 +28,7 @@ export default function PublishedList(): ReactElement {
         offset: 9,
         query: {
           query_string: {
-            query: `(publicKey.owner:${accountId}) AND (${transformChainIdsListToQuery(
-              chainIds
-            )})`
+            query: `(publicKey.owner:${accountId}) AND isInPurgatory:false`
           }
         },
         sort: { created: -1 }

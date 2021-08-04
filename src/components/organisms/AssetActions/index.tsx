@@ -30,7 +30,7 @@ export default function AssetActions(): ReactElement {
   const [consumableFeedback, setConsumableFeedback] = useState<string>('')
 
   useEffect(() => {
-    if (!ddo || !accountId) return
+    if (!ddo || !accountId || !ocean) return
     async function checkIsConsumable() {
       const consumable: any = await ocean.assets.isConsumable(
         ddo,
