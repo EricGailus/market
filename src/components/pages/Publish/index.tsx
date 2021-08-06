@@ -7,6 +7,7 @@ import FormPublish from './FormPublish'
 import FormAlgoPublish from './FormAlgoPublish'
 import Web3Feedback from '../../molecules/Web3Feedback'
 import Tabs from '../../atoms/Tabs'
+import Button from '../../atoms/Button'
 import { initialValues, validationSchema } from '../../../models/FormPublish'
 import {
   initialValues as initialValuesAlgorithm,
@@ -34,6 +35,7 @@ import Alert from '../../atoms/Alert'
 import MetadataFeedback from '../../molecules/MetadataFeedback'
 import { useAccountPurgatory } from '../../../hooks/useAccountPurgatory'
 import { useWeb3 } from '../../../providers/Web3'
+import useFaucet from '../../../hooks/useFaucet'
 
 const formNameDatasets = 'ocean-publish-form-datasets'
 const formNameAlgorithms = 'ocean-publish-form-algorithms'
@@ -72,6 +74,7 @@ export default function PublishPage({
   const { accountId } = useWeb3()
   const { isInPurgatory, purgatoryData } = useAccountPurgatory(accountId)
   const { publish, publishError, isLoading, publishStepText } = usePublish()
+  const { airDrop } = useFaucet()
   const [success, setSuccess] = useState<string>()
   const [error, setError] = useState<string>()
   const [title, setTitle] = useState<string>()
@@ -216,6 +219,11 @@ export default function PublishPage({
     }
   }
 
+  async function handleAddToken() {
+    const transactionReceipt = await airDrop('10')
+    Logger.log(transactionReceipt)
+  }
+
   return isInPurgatory && purgatoryData ? null : (
     <Permission eventType="publish">
       <Formik
@@ -297,6 +305,11 @@ export default function PublishPage({
               )}
 
               {debug === true && <Debug values={values} />}
+
+              <h3>Ocean Faucet</h3>
+              <Button style="text" onClick={handleAddToken}>
+                Air drop OCEAN →
+              </Button>
             </>
           )
         }}

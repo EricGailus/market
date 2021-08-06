@@ -212,11 +212,17 @@ export default function PoolShares(): ReactElement {
             .toChecksumAddress(data[i].poolId.datatokenAddress)
             .replace('0x', 'did:op:')
           const ddo = await retrieveDDO(did, source.token)
+
+          var currentChainId = 8996
+          if (ddo) {
+            currentChainId = ddo.chainId
+          }
+
           const userLiquidity = calculateUserLiquidity(data[i])
           assetList.push({
             poolShare: data[i],
             userLiquidity: userLiquidity,
-            networkId: ddo.chainId,
+            networkId: currentChainId,
             createTime: data[i].poolId.createTime
           })
         }

@@ -4,6 +4,7 @@ import { ReactComponent as Cog } from '../../../images/cog.svg'
 import styles from './index.module.css'
 import Currency from './Currency'
 import Debug from './Debug'
+import Faucet from './Faucet'
 import { ReactComponent as Caret } from '../../../images/caret.svg'
 import useDarkMode from 'use-dark-mode'
 import Appearance from './Appearance'
@@ -20,6 +21,7 @@ export default function UserPreferences(): ReactElement {
           <Currency />
           <Appearance darkMode={darkMode} />
           <Debug />
+          <Faucet />
         </ul>
       }
       trigger="click focus"
