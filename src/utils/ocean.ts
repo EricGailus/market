@@ -25,6 +25,7 @@ export function getOceanConfig(network: string | number): ConfigHelperConfig {
     config.fixedRateExchangeAddress =
       '0xeD1DfC5F3a589CfC4E8B91C1fbfC18FC6699Fbde'
     config.poolFactoryAddress = '0x53eDF9289B0898e1652Ce009AACf8D25fA9A42F8'
+    config.dispenserAddress = '0x623744Cd25Ed553d3b4722667697F926cf99658B'
   }
 
   return config as ConfigHelperConfig
