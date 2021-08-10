@@ -125,7 +125,12 @@ function AssetProvider({
     if (!ddo) return
     setLoading(true)
     const returnedPrice = await getPrice(ddo)
-    setPrice({ ...returnedPrice })
+
+    if (returnedPrice.datatoken == 0) {
+      setPrice({ ...ddo.price })
+    } else {
+      setPrice({ ...returnedPrice })
+    }
 
     // Get metadata from DDO
     const { attributes } = ddo.findServiceByType('metadata')
