@@ -28,14 +28,14 @@ export function getOceanConfig(network: string | number): ConfigHelperConfig {
   }
 
   if (myConfig !== null && (network === 1337 || network === undefined)) {
-    config.oceanTokenAddress = '0x3A819b4848FBd48A680303d739daaA2ed46EeF2E'
-    config.factoryAddress = '0xE8299CCe89f1B30E1d65Ebb827b784D8900aEf2c'
+    config.oceanTokenAddress = '0x2fC1fd21cb222Dc180Ef817dE4c426fd9230b5A5'
+    config.factoryAddress = '0x1e6d9207241DbDca82B0D9546490c97B24B1a9f6'
     config.metadataContractAddress =
-      '0x10c1a8a80197b9Aed657bb0F8057c7C89504ABDE'
+      '0x9C2a015129969c98E9A5BcBEb61A5F907FF5b629'
     config.fixedRateExchangeAddress =
-      '0xe8e117260e01482dDFaDFe0960d44097a3a73C49'
-    config.poolFactoryAddress = '0x515BF99873534584fF1ae590EaB00Cda1BF10583'
-    config.dispenserAddress = '0x7Ac89612A5880Ee7DCB8E01B6b187382471D0716'
+      '0x91EB42b164664cB28a09B0cF9651b404Ee105afA'
+    config.poolFactoryAddress = '0x98b6901cE7C9fc65dBeeC98598136593EB7b4c6C'
+    config.dispenserAddress = '0x611f28Ef25D778aFC5a0034Aea94297e2c215a42'
   }
   return myConfig
 }
