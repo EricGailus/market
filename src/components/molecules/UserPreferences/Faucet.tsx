@@ -23,7 +23,7 @@ export default function Faucet(): ReactElement {
   async function handleAddToken() {
     if (!web3Provider || !accountId) return
 
-    const transactionReceipt = await airDrop('10', accountId)
+    const transactionReceipt = await airDrop('50', accountId)
     Logger.log(transactionReceipt)
   }
 

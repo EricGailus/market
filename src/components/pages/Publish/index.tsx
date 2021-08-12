@@ -220,7 +220,7 @@ export default function PublishPage({
   }
 
   async function handleAddToken() {
-    const transactionReceipt = await airDrop('10')
+    const transactionReceipt = await airDrop('50')
     Logger.log(transactionReceipt)
   }
 
